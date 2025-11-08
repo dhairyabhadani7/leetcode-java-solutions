@@ -37,3 +37,12 @@ build/
 
 ### Mac OS ###
 .DS_Store
+
+# IntelliJ
+.idea/
+out/
+
+# Java compiled files
+*.class
+
+
