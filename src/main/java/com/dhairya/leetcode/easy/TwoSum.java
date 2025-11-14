@@ -12,10 +12,8 @@ class Solution {
                 return new int[]{hm.get(complecent),i};
             }
             hm.put(nums[i],i);
-
         }
         return new int[]{};
-
     }
 }
 
