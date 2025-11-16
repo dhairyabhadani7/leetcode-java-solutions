@@ -20,7 +20,7 @@ class Sol12 {
 
 public class FirstUniqueCharacter {
     public static void main(String[] args) {
-     String s = "leetcode";
+     String s = "aabcc";
      int res= Sol12.firstUniqChar(s);
      System.out.println(res);
     }
