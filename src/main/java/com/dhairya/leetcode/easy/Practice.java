@@ -93,11 +93,22 @@ class Soln{
         }
         return maxProfit;
     }
+
+    public int majorityElement(int[] nums) {
+        int candidate=0;
+        int count=0;
+        for(int i=0;i<nums.length;i++){
+            if(count==0) candidate=nums[i];
+            if(nums[i]==candidate) count++;
+            else count--;
+        }
+        return candidate;
+    }
 }
 
 public class Practice {
     public static void main(String[] args) {
-        int[] arr= {7,1,5,3,6,4};
+        int[] arr= {2,2,1,1,1,2,2};
         Soln sol = new Soln();
 //        System.out.println(sol.minElement(arr));
 //        System.out.println(sol.maxElement(arr));
@@ -108,7 +119,7 @@ public class Practice {
 //          int[] res =sol.twoSum(arr,9);
 //        System.out.println(Arrays.toString(res));
 
-        int res=sol.maxProfit(arr);
+        int res=sol.majorityElement(arr);
         System.out.println(res);
 
     }
