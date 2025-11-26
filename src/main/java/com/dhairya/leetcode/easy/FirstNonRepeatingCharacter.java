@@ -17,6 +17,7 @@ class FirstNonRepeatingChar{
         }
         return 0;
     }
+
 }
 
 public class FirstNonRepeatingCharacter {

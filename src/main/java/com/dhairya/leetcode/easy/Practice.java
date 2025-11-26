@@ -122,13 +122,25 @@ class Soln{
         }
         return true;
     }
+    public int firstUniqChar(String s) {
+        int[] freq= new int[26];
+        for(char ch: s.toCharArray()){
+            freq[ch-'a']++; //leetcode
+        }
+        for(int i=0;i<s.length();i++){
+            if(freq[s.charAt(i)-'a']==1){
+                return i;
+            }
+        }
+        return -1;
+    }
 
 }
 
 public class Practice {
     public static void main(String[] args) {
-        String s="rat";
-        String t="car";
+        String s="leetcodel";
+
         Soln sol = new Soln();
 //        System.out.println(sol.minElement(arr));
 //        System.out.println(sol.maxElement(arr));
@@ -142,7 +154,7 @@ public class Practice {
 //        int res=sol.majorityElement(arr);
 //        System.out.println(res);
 
-        boolean res= sol.isAnagram(s,t);
+        int res= sol.firstUniqChar(s);
         System.out.println(res);
 
     }
