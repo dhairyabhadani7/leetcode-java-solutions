@@ -5,28 +5,23 @@ class Sol11 {
         if (str.length() != tr.length()) return false;
         int[] freq = new int[26];
 
-        for (int i = 0; i < freq.length; i++) {
             for (char s : str.toCharArray()) {
                 freq[s - 'a']++;
             }
-        }
-        for (int i = 0; i < freq.length; i++) {
             for (char t : tr.toCharArray()) {
                 freq[t - 'a']--;
             }
-        }
         for (int count : freq) {
             if (count != 0) return false;
         }
-
         return true;
     }
 }
 
 public class ValidAnagram {
     public static void main(String[] args) {
-        String s= "rat";
-        String t="car";
+        String s= "anagram";
+        String t="nagrama";
         boolean b= Sol11.isAnagram(s,t);
         System.out.println(b);
     }

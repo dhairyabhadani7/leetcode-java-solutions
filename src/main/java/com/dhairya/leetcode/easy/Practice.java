@@ -1,5 +1,6 @@
 package com.dhairya.leetcode.easy;
 
+import java.sql.SQLOutput;
 import java.util.*;
 
 class Soln{
@@ -104,11 +105,30 @@ class Soln{
         }
         return candidate;
     }
+    public boolean isAnagram(String s, String t) {
+       int[] freq = new int[26];
+       if(s.length()!=t.length()) return false;
+
+           for(char ch:s.toCharArray()){
+               freq[ch-'a']++;
+           }
+           for(char ch:t.toCharArray()){
+                freq[ch-'a']--;
+            }
+        for(int count: freq){
+            if(count!=0){
+                return false;
+            }
+        }
+        return true;
+    }
+
 }
 
 public class Practice {
     public static void main(String[] args) {
-        int[] arr= {2,2,1,1,1,2,2};
+        String s="rat";
+        String t="car";
         Soln sol = new Soln();
 //        System.out.println(sol.minElement(arr));
 //        System.out.println(sol.maxElement(arr));
@@ -119,7 +139,10 @@ public class Practice {
 //          int[] res =sol.twoSum(arr,9);
 //        System.out.println(Arrays.toString(res));
 
-        int res=sol.majorityElement(arr);
+//        int res=sol.majorityElement(arr);
+//        System.out.println(res);
+
+        boolean res= sol.isAnagram(s,t);
         System.out.println(res);
 
     }
