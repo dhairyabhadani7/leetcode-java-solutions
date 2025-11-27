@@ -14,7 +14,7 @@ class PalindromeCheck{
         return reverse==x;
     }
 }
-public class isPalindrome {
+public class CheckPalindromeInt {
     public static void main(String[] args) {
         boolean res=PalindromeCheck.isPalindrome(-121);
         System.out.println(res);
