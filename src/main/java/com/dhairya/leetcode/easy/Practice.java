@@ -148,11 +148,45 @@ class Soln{
         return String.join(" ",s1);
     }
 
+    public String longestCommonPrefix(String[] strs) {
+        if(strs==null  || strs.length==0){
+            return "";
+        }
+        String prefix= strs[0];
+        for(int i=1;i<strs.length;i++){
+            while (!strs[i].startsWith(prefix)){
+               prefix=prefix.substring(0,prefix.length()-1);
+            }
+            if(prefix.isEmpty()) return "";
+        }
+        return prefix;
+    }
+
+    public boolean isValid(String s) {
+        Stack<Character> stack = new Stack<>();
+        for(char ch: s.toCharArray()){
+            if(ch=='(' || ch=='{' || ch=='['){
+                stack.push(ch);
+            }
+            else{
+                if (stack.isEmpty()) return false;
+                char top=stack.pop();
+
+                if(ch==')' && top!='(' ||
+                        ch=='}' && top!='{' ||
+                        ch==']' && top!='[' ){
+                    return false;
+                }
+            }
+        }
+        return stack.isEmpty();
+    }
+
 }
 
 public class Practice {
     public static void main(String[] args) {
-        String s= "the sky is blue";
+        String s=  "()[]{";
 
         Soln sol = new Soln();
 //        System.out.println(sol.minElement(arr));
@@ -170,7 +204,7 @@ public class Practice {
 //        int res= sol.firstUniqChar(s);
 //        System.out.println(res);
 
-        String res=sol.reverseWords(s);
+        boolean res=sol.isValid(s);
         System.out.println(res);
 
 
