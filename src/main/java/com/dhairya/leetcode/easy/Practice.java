@@ -134,12 +134,25 @@ class Soln{
         }
         return -1;
     }
+    public String reverseWords(String s){
+        String[] s1=s.trim().split("\\s+");
+        int left =0;
+        int right=s1.length-1;
+        while (left<right){
+            String temp=s1[left];
+            s1[left] = s1[right];
+            s1[right]=temp;
+            left++;
+            right--;
+        }
+        return String.join(" ",s1);
+    }
 
 }
 
 public class Practice {
     public static void main(String[] args) {
-        String s="leetcodel";
+        String s= "the sky is blue";
 
         Soln sol = new Soln();
 //        System.out.println(sol.minElement(arr));
@@ -153,9 +166,13 @@ public class Practice {
 
 //        int res=sol.majorityElement(arr);
 //        System.out.println(res);
+//
+//        int res= sol.firstUniqChar(s);
+//        System.out.println(res);
 
-        int res= sol.firstUniqChar(s);
+        String res=sol.reverseWords(s);
         System.out.println(res);
+
 
     }
 }
