@@ -1,29 +1,29 @@
 package com.dhairya.leetcode.easy;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
 class Sol{
-    public int[] twoSum(int[] nums, int tar){
-Map<Integer, Integer> hm = new HashMap<>();
-for(int i=0;i<nums.length;i++){
-int complement=tar-nums[i];
-if(hm.containsKey(complement)){
-    return new int[]{hm.get(complement),i};
-}
-else {
-    hm.put(nums[i],i);
-}
-}
-return new int[]{-1,-1};
+    public int[] moveZeroes(int[] nums){
+        int j=0;
+        for(int i=0;i<nums.length;i++){
+            if(nums[i]!=0){
+                nums[j++]=nums[i];
+            }
+        }
+        while(j<nums.length){
+            nums[j++]=0;
+        }
+        return nums;
     }
 }
 
  class Practice{
     public static void main(String[] args) {
-      int[] nums={2,7,11,15};
-      int target=9;
-        Sol sol=new Sol();
-        int[] result=sol.twoSum(nums, target);
-        System.out.println("Indices: [" + result[0] + ", " + result[1] + "]");
+        Sol sol = new Sol();
+        int[] arr={0,1,0,3,12};
+        int[] movedArray=sol.moveZeroes(arr);
+        System.out.print("Array after moving zeroes: "+ Arrays.toString(movedArray));
+        
     }
 }
